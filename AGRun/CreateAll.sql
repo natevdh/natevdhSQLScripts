@@ -22,6 +22,7 @@ GO
 SET ANSI_NULLS ON
 GO
 
+
 /*
 	This View is here to give you a general idea of if the AGRun steps have been added and if they have been configured correctly.
 
@@ -35,7 +36,7 @@ GO
 		2. If the config is currently missing
 		3. If the Step1 and Step2 are not using the same config name 
 
-	Github Link: https://github.com/natevdh/natevdhSQLScripts/AGRun
+	Github Link: https://github.com/natevdh/natevdhSQLScripts/tree/master/AGRun
 */
 CREATE VIEW [SQLJob].[AGRunReviewer]
 AS
@@ -106,6 +107,7 @@ SET QUOTED_IDENTIFIER ON
 GO
 SET ANSI_NULLS ON
 GO
+
 /*
 	Description:
 		This Adds the AG Run Steps to the list of SQLAgentJobs provided.
@@ -131,7 +133,7 @@ GO
 			@SQLAgentJobs = @SQLAgentJobs -- AGRunJobList
 			, @IsDebug = 1 -- bit
 
-	Github Link: https://github.com/natevdh/natevdhSQLScripts/AGRun
+	Github Link: https://github.com/natevdh/natevdhSQLScripts/tree/master/AGRun
 */
 CREATE PROCEDURE [SQLJob].[AGRunAddSteps] (
 	@SQLAgentJobs SQLJob.AGRunJobList READONLY
@@ -209,25 +211,25 @@ BEGIN
 
 
 			CREATE TABLE #JobSteps (
-				[step_id] [int] NOT NULL PRIMARY KEY
+				[step_id] [INT] NOT NULL PRIMARY KEY
 				,[step_name] [sysname] NOT NULL
-				,[subsystem] [nvarchar](40) NOT NULL
-				,[command] [nvarchar](max) NULL
-				,[flags] [int] NOT NULL
-				,[additional_parameters] [nvarchar](max) NULL
-				,[cmdexec_success_code] [int] NOT NULL
-				,[on_success_action] [tinyint] NOT NULL
-				,[on_success_step_id] [int] NOT NULL
-				,[on_fail_action] [tinyint] NOT NULL
-				,[on_fail_step_id] [int] NOT NULL
+				,[subsystem] [NVARCHAR](40) NOT NULL
+				,[command] [NVARCHAR](MAX) NULL
+				,[flags] [INT] NOT NULL
+				,[additional_parameters] [NVARCHAR](MAX) NULL
+				,[cmdexec_success_code] [INT] NOT NULL
+				,[on_success_action] [TINYINT] NOT NULL
+				,[on_success_step_id] [INT] NOT NULL
+				,[on_fail_action] [TINYINT] NOT NULL
+				,[on_fail_step_id] [INT] NOT NULL
 				,[server] [sysname] NULL
 				,[database_name] [sysname] NULL
 				,[database_user_name] [sysname] NULL
-				,[retry_attempts] [int] NOT NULL
-				,[retry_interval] [int] NOT NULL
-				,[os_run_priority] [int] NOT NULL
-				,[output_file_name] [nvarchar](200) NULL
-				,[proxy_id] [int] NULL
+				,[retry_attempts] [INT] NOT NULL
+				,[retry_interval] [INT] NOT NULL
+				,[os_run_priority] [INT] NOT NULL
+				,[output_file_name] [NVARCHAR](200) NULL
+				,[proxy_id] [INT] NULL
 				);
 		END
 
@@ -663,7 +665,7 @@ GO
 		EXEC SQLJob.AGRunDropSteps 
 			@SQLAgentJobName = 'AGDemo - Simple Job 1'
 
-	Github Link: https://github.com/natevdh/natevdhSQLScripts/AGRun
+	Github Link: https://github.com/natevdh/natevdhSQLScripts/tree/master/AGRun
 */
 CREATE PROCEDURE [SQLJob].[AGRunDropSteps] (
 	@SQLAgentJobName sysname
@@ -787,7 +789,7 @@ GO
 			Step 1 Does the config verification and runs the check to see if it should run or not
 		@ConfigName - Name of the config value in AG.DRJobConfig
 
-	Github Link: https://github.com/natevdh/natevdhSQLScripts/AGRun
+	Github Link: https://github.com/natevdh/natevdhSQLScripts/tree/master/AGRun
 
 */
 CREATE PROCEDURE [SQLJob].[AGRunStatusCheck] (
