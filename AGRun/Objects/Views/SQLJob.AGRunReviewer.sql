@@ -3,6 +3,7 @@ GO
 SET ANSI_NULLS ON
 GO
 
+
 /*
 	This View is here to give you a general idea of if the AGRun steps have been added and if they have been configured correctly.
 
@@ -16,7 +17,7 @@ GO
 		2. If the config is currently missing
 		3. If the Step1 and Step2 are not using the same config name 
 
-	Github Link: https://github.com/natevdh/natevdhSQLScripts/AGRun
+	Github Link: https://github.com/natevdh/natevdhSQLScripts/tree/master/AGRun
 */
 CREATE VIEW [SQLJob].[AGRunReviewer]
 AS

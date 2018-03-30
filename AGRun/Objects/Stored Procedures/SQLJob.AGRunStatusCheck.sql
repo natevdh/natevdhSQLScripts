@@ -11,7 +11,7 @@ GO
 			Step 1 Does the config verification and runs the check to see if it should run or not
 		@ConfigName - Name of the config value in AG.DRJobConfig
 
-	Github Link: https://github.com/natevdh/natevdhSQLScripts/AGRun
+	Github Link: https://github.com/natevdh/natevdhSQLScripts/tree/master/AGRun
 
 */
 CREATE PROCEDURE [SQLJob].[AGRunStatusCheck] (
